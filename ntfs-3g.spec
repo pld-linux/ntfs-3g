@@ -4,7 +4,7 @@ Summary(pt_BR):	Network Time Protocol versão 4
 Name:		ntfs-3g
 Version:	20070714
 Release:	1beta
-License:	distributable
+License:	GPL
 Group:		Applications/System
 Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-BETA.tgz
 # Source0-md5:	00e8f27da72ed51f6c99ebaef0989297
@@ -12,7 +12,6 @@ Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
 BuildRequires:	libfuse-devel >= 2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 The driver to NTFS with read and write support. It is able to
@@ -70,12 +69,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS CREDITS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*
 %{_mandir}/man8/*
