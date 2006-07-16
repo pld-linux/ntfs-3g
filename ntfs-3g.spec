@@ -11,16 +11,17 @@ Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-BETA.tgz
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
 BuildRequires:	libfuse-devel >= 2.5.0
-BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
 %description
-The driver to NTFS with read and write support. It is able to unlimited and 
-fully save file creation and deletion.
+The driver to NTFS with read and write support. It is able to
+unlimited and fully save file creation and deletion.
 
 %description -l pl
-Sterownik do systemu plików NTFS posi±daj±cy mo¿liwo¶æ zarówno odczytu jak
-i zapisu. Umo¿liwia tworzenie i kasowanie plików nieograniczon± liczbê razy.
+Sterownik do systemu plików NTFS posi±daj±cy mo¿liwo¶æ zarówno odczytu
+jak i zapisu. Umo¿liwia tworzenie i kasowanie plików nieograniczon±
+liczbê razy.
 
 %package devel
 Summary:	Header files for libntfs-3g library
@@ -39,7 +40,7 @@ bibliotek libntfs-3g.
 %package static
 Summary:	Static version of libntfs-3g library
 Summary:	Statyczna wersja bibliotek libntfs-3g
-Group: 		Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
