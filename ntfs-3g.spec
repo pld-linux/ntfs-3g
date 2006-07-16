@@ -10,6 +10,9 @@ Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-BETA.tgz
 # Source0-md5:	00e8f27da72ed51f6c99ebaef0989297
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	libfuse-devel >= 2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,9 +61,7 @@ Ten pakiet zawiera statyczn± wersjê bibliotek libntfs-3g.
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-
 %configure
-
 %{__make}
 
 %install
