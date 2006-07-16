@@ -7,8 +7,8 @@ Release:	1beta
 License:	distributable
 Group:		Applications/System
 Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-BETA.tgz
+# Source0-md5:	00e8f27da72ed51f6c99ebaef0989297
 Patch0:		%{name}-Makefile.am.diff
-# Source0-md5:	0f8fabe87cf54f409b57c6283f0c0c3d
 URL:		http://www.linux-ntfs.org/
 BuildRequires:	libfuse-devel >= 2.5.0
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
