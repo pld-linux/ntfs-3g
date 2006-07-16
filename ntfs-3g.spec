@@ -1,12 +1,14 @@
+%define		_beta	BETA
+
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Summary(pt_BR):	Network Time Protocol versão 4
 Name:		ntfs-3g
 Version:	20070714
-Release:	1beta
+Release:	0.%{_beta}.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-BETA.tgz
+Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-%{_beta}.tgz
 # Source0-md5:	00e8f27da72ed51f6c99ebaef0989297
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
@@ -52,7 +54,7 @@ This package contains the static version of libntfs-3g library
 Ten pakiet zawiera statyczn± wersjê bibliotek libntfs-3g.
 
 %prep
-%setup -q -n %{name}-%{version}-BETA
+%setup -q -n %{name}-%{version}-%{_beta}
 %patch0 -p1
 
 %build
