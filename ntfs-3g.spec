@@ -23,7 +23,7 @@ The driver to NTFS with read and write support. It is able to
 unlimited and fully save file creation and deletion.
 
 %description -l pl
-Sterownik do systemu plików NTFS posi±daj±cy mo¿liwo¶æ zarówno odczytu
+Sterownik do systemu plików NTFS posiadaj±cy mo¿liwo¶æ zarówno odczytu
 jak i zapisu. Umo¿liwia tworzenie i kasowanie plików nieograniczon±
 liczbê razy.
 
