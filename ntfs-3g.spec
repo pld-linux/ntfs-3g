@@ -4,12 +4,12 @@ Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Summary(pt_BR):	Network Time Protocol versão 4
 Name:		ntfs-3g
-Version:	20070714
+Version:	20070811
 Release:	0.%{_beta}.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-%{_beta}.tgz
-# Source0-md5:	00e8f27da72ed51f6c99ebaef0989297
+# Source0-md5:	cf3e7cd55454b9e26e5c3fa749e478bc
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
 BuildRequires:	autoconf
@@ -84,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/ntfs
+%{_includedir}/ntfs-3g
 %{_libdir}/*.la
 %{_libdir}/lib*.so
 
