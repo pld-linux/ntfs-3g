@@ -2,7 +2,6 @@
 
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
-Summary(pt_BR):	Network Time Protocol versão 4
 Name:		ntfs-3g
 Version:	20070811
 Release:	0.%{_beta}.1
