@@ -3,12 +3,12 @@
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Name:		ntfs-3g
-Version:	20070811
+Version:	20070822
 Release:	0.%{_beta}.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-%{_beta}.tgz
-# Source0-md5:	cf3e7cd55454b9e26e5c3fa749e478bc
+# Source0-md5:	7b01f09e7bf0d5d89fb5c1f2dac60848
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.linux-ntfs.org/
 BuildRequires:	autoconf
