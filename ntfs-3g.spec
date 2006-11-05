@@ -1,22 +1,24 @@
 %define		_beta	BETA
-
+%define		_rel	2
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Name:		ntfs-3g
 Version:	0.20061031
-Release:	0.%{_beta}.1
+Release:	0.%{_beta}.%{_rel}
 Epoch:		1
 License:	GPL
 Group:		Applications/System
-Source0:	http://www.ntfs-3g.org/%{name}-%{version}-BETA.tgz
+Source0:	http://www.ntfs-3g.org/%{name}-%{version}-%{_beta}.tgz
 # Source0-md5:	c94db623d2b1e67c4feb7fac4b34bc78
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	libfuse-devel >= 2.5.0
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sbindir	/sbin
 
 %description
 The driver to NTFS with read and write support. It is able to
@@ -75,13 +77,14 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CREDITS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/ntfs-3g
+%attr(755,root,root) %{_sbindir}/mount.ntfs-3g
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_mandir}/man8/*
 
