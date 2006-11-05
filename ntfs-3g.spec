@@ -3,12 +3,13 @@
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Name:		ntfs-3g
-Version:	20070920
+Version:	0.20061031
 Release:	0.%{_beta}.1
+Epoch:		1
 License:	GPL
 Group:		Applications/System
-Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-%{_beta}.tgz
-# Source0-md5:	6382355a472c96e0ed9f4f62d4d9496f
+Source0:	http://www.ntfs-3g.org/%{name}-%{version}-BETA.tgz
+# Source0-md5:	c94db623d2b1e67c4feb7fac4b34bc78
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
@@ -30,7 +31,7 @@ liczbê razy.
 Summary:	Header files for libntfs-3g library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki libntfs-3g
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 This package includes the header files needed to link software with
@@ -44,7 +45,7 @@ bibliotek libntfs-3g.
 Summary:	Static version of libntfs-3g library
 Summary:	Statyczna wersja bibliotek libntfs-3g
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 This package contains the static version of libntfs-3g library
