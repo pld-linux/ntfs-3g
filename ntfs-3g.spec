@@ -10,7 +10,7 @@ Group:		Applications/System
 Source0:	http://mlf.linux.rulez.org/mlf/ezaz/%{name}-%{version}-%{_beta}.tgz
 # Source0-md5:	6382355a472c96e0ed9f4f62d4d9496f
 Patch0:		%{name}-Makefile.am.diff
-URL:		http://www.linux-ntfs.org/
+URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
