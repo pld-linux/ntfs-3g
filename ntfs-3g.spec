@@ -1,20 +1,20 @@
 %define		_beta	BETA
-%define		_rel	2
+%define		_rel	1
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Name:		ntfs-3g
-Version:	0.20061031
+Version:	0.20061115
 Release:	0.%{_beta}.%{_rel}
 Epoch:		1
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.ntfs-3g.org/%{name}-%{version}-%{_beta}.tgz
-# Source0-md5:	c94db623d2b1e67c4feb7fac4b34bc78
+# Source0-md5:	9a0c1a3d2a27deaeda6c39003e9f57c4
 Patch0:		%{name}-Makefile.am.diff
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libfuse-devel >= 2.5.0
+BuildRequires:	libfuse-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
