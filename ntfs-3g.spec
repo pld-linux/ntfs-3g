@@ -16,7 +16,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libfuse-devel >= 2.6.0
 BuildRequires:	libtool
-BuildRequires:	libselinux-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
