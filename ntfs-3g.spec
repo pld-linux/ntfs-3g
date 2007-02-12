@@ -1,7 +1,7 @@
 %define		_beta	RC1
 %define		_rel	1
 Summary:	The NTFS driver with read and write support
-Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
+Summary(pl.UTF-8):   Sterownik do NTFS umoÅ¼liwiajÄ…cy odczyt i zapis
 Name:		ntfs-3g
 Version:	0.20070207
 Release:	0.%{_beta}.%{_rel}
@@ -24,14 +24,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The driver to NTFS with read and write support. It is able to
 unlimited and fully save file creation and deletion.
 
-%description -l pl
-Sterownik do systemu plików NTFS posiadaj±cy mo¿liwo¶æ zarówno odczytu
-jak i zapisu. Umo¿liwia tworzenie i kasowanie plików nieograniczon±
-liczbê razy.
+%description -l pl.UTF-8
+Sterownik do systemu plikÃ³w NTFS posiadajÄ…cy moÅ¼liwoÅ›Ä‡ zarÃ³wno odczytu
+jak i zapisu. UmoÅ¼liwia tworzenie i kasowanie plikÃ³w nieograniczonÄ…
+liczbÄ™ razy.
 
 %package devel
 Summary:	Header files for libntfs-3g library
-Summary(pl):	Pliki nag³ówkowe dla biblioteki libntfs-3g
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla biblioteki libntfs-3g
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -39,8 +39,8 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 This package includes the header files needed to link software with
 libnfts-3g libraries.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do budowania programów korzystaj±cych z
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do budowania programÃ³w korzystajÄ…cych z
 bibliotek libntfs-3g.
 
 %package static
@@ -52,8 +52,8 @@ Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 %description static
 This package contains the static version of libntfs-3g library
 
-%description static -l pl
-Ten pakiet zawiera statyczn± wersjê bibliotek libntfs-3g.
+%description static -l pl.UTF-8
+Ten pakiet zawiera statycznÄ… wersjÄ™ bibliotek libntfs-3g.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_beta}
