@@ -1,7 +1,7 @@
 %define		_beta	RC1
 %define		_rel	1
 Summary:	The NTFS driver with read and write support
-Summary(pl.UTF-8):   Sterownik do NTFS umożliwiający odczyt i zapis
+Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
 Version:	0.20070207
 Release:	0.%{_beta}.%{_rel}
@@ -31,7 +31,7 @@ liczbę razy.
 
 %package devel
 Summary:	Header files for libntfs-3g library
-Summary(pl.UTF-8):   Pliki nagłówkowe dla biblioteki libntfs-3g
+Summary(pl.UTF-8):	Pliki nagłówkowe dla biblioteki libntfs-3g
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
