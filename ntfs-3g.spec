@@ -54,7 +54,7 @@ This package contains the static version of libntfs-3g library
 Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
