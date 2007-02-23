@@ -1,15 +1,13 @@
-%define		_beta	BETA
-%define		_rel	1
 Summary:	The NTFS driver with read and write support
 Summary(pl):	Sterownik do NTFS umo¿liwiaj±cy odczyt i zapis
 Name:		ntfs-3g
-Version:	0.20061212
-Release:	0.%{_beta}.%{_rel}
+Version:	1.0
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/System
-Source0:	http://www.ntfs-3g.org/%{name}-%{version}-%{_beta}.tgz
-# Source0-md5:	272ff4191b3ec79ef8187da8bc7ffda1
+Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
+# Source0-md5:	873a8de662849d129fc7c475ad3f5447
 Patch0:		%{name}-ldconfig.patch
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
@@ -56,7 +54,7 @@ This package contains the static version of libntfs-3g library
 Ten pakiet zawiera statyczn± wersjê bibliotek libntfs-3g.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_beta}
+%setup -q
 %patch0 -p1
 
 %build
