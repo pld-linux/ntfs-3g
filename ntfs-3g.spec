@@ -73,6 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# mount.ntfs-3g manpage fix
+rm $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
+echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
