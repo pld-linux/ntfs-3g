@@ -1,13 +1,13 @@
 Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
-Version:	1.826
+Version:	1.910
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/System
-Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
-# Source0-md5:	b8bf23a3844ec00d758f04a6b88549ae
+Source0:	http://www.ntfs-3g.org/%{name}-%{version}-RC.tgz
+# Source0-md5:	1a41014012a3376401dd596971650252
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,7 +53,7 @@ This package contains the static version of libntfs-3g library
 Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 
 %prep
-%setup -q 
+%setup -q -n %{name}-%{version}-RC
 
 %build
 %{__libtoolize}
