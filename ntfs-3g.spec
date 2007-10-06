@@ -1,13 +1,13 @@
 Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
-Version:	1.913
+Version:	1.1004
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
-# Source0-md5:	d8093ce011683b39a683a948f94ce33a
+# Source0-md5:	7630c7dc2879078df06ceff680cc04f5
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
