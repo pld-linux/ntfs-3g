@@ -4,12 +4,12 @@ Name:		ntfs-3g
 Version:	1.2129
 Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
 # Source0-md5:	8dc058841779feb2ec2588c30fb28ad2
 URL:		http://www.ntfs-3g.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	libfuse-devel >= 2.7.0
 BuildRequires:	libtool
@@ -81,8 +81,8 @@ echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -90,16 +90,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ntfs-3g
 %attr(755,root,root) %{_bindir}/ntfs-3g.probe
 %attr(755,root,root) %{_sbindir}/mount.ntfs-3g
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_mandir}/man8/*
+%attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.21
+%{_mandir}/man8/mount.ntfs-3g.8*
+%{_mandir}/man8/ntfs-3g.8*
+%{_mandir}/man8/ntfs-3g.probe.8*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libntfs-3g.so
+%{_libdir}/libntfs-3g.la
 %{_includedir}/ntfs-3g
 %{_pkgconfigdir}/libntfs-3g.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libntfs-3g.a
