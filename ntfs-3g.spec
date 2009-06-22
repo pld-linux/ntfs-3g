@@ -11,7 +11,6 @@ Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	libfuse-devel >= 2.7.0
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,7 +63,7 @@ Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 
 %configure \
 	--disable-ldconfig \
-	--with-fuse=external
+	--with-fuse=internal
 
 %{__make}
 
