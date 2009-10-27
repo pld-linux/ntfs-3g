@@ -2,12 +2,13 @@ Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
 Version:	2009.4.4
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.ntfs-3g.org/%{name}-%{version}.tgz
 # Source0-md5:	e0b5c170f088a8d82968f0a6b34d31da
+Source1:	%{name}.fdi
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -69,6 +70,7 @@ Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -76,6 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 # mount.ntfs-3g manpage fix
 rm $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
 echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor/10-%{name}.fdi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -91,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/mount.ntfs-3g
 %attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.54
+%{_datadir}/hal/fdi/policy/10osvendor/*
 %{_mandir}/man8/mount.ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.probe.8*
