@@ -2,7 +2,7 @@ Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
 Version:	2009.11.14
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
@@ -98,8 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.??
 %{_datadir}/hal/fdi/policy/10osvendor/*
-%docdir %{_docdir}/ntfs-3g
-%{_docdir}/ntfs-3g/README
 %{_mandir}/man8/mount.ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.probe.8*
