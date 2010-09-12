@@ -1,13 +1,13 @@
 Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
-Version:	2010.1.16
+Version:	2010.8.8
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.tuxera.com/opensource/%{name}-%{version}.tgz
-# Source0-md5:	e104c914e8d7d29ee83e63d46afbba25
+# Source0-md5:	6c109746c2708f679725a2ea441c61c6
 Source1:	%{name}.fdi
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf >= 2.59
@@ -90,14 +90,17 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CREDITS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/lowntfs-3g
 %attr(755,root,root) %{_bindir}/ntfs-3g
 %attr(755,root,root) %{_bindir}/ntfs-3g.probe
 %attr(755,root,root) %{_bindir}/ntfs-3g.secaudit
 %attr(755,root,root) %{_bindir}/ntfs-3g.usermap
+%attr(755,root,root) %{_sbindir}/mount.lowntfs-3g
 %attr(755,root,root) %{_sbindir}/mount.ntfs-3g
 %attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.??
 %{_datadir}/hal/fdi/policy/10osvendor/*
+%{_mandir}/man8/mount.lowntfs-3g.8*
 %{_mandir}/man8/mount.ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.probe.8*
