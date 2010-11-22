@@ -2,7 +2,7 @@ Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
 Version:	2010.8.8
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
@@ -81,6 +81,9 @@ echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor/10-%{name}.fdi
 
+# Symlink to allow automount using ntfs-3g:
+ln -sf ntfs-3g $RPM_BUILD_ROOT%{_sbindir}/mount.ntfs
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -96,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ntfs-3g.secaudit
 %attr(755,root,root) %{_bindir}/ntfs-3g.usermap
 %attr(755,root,root) %{_sbindir}/mount.lowntfs-3g
+%attr(755,root,root) %{_sbindir}/mount.ntfs
 %attr(755,root,root) %{_sbindir}/mount.ntfs-3g
 %attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.??
