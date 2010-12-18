@@ -1,3 +1,6 @@
+# TODO
+# - subpackage to avoid hal dependency:
+#   /usr/share/hal/fdi/policy/10osvendor/10-ntfs-3g.fdi
 Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
@@ -71,7 +74,6 @@ Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
