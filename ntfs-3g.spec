@@ -1,20 +1,19 @@
-# TODO
-# - subpackage to avoid hal dependency:
-#   /usr/share/hal/fdi/policy/10osvendor/10-ntfs-3g.fdi
+%bcond_with	internal_fuse	# build with internal libfuse
 Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
-Version:	2010.10.2
+Version:	2011.1.15
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://www.tuxera.com/opensource/%{name}-%{version}.tgz
-# Source0-md5:	91405690f25822142cdcb43d03e62d3f
+# Source0-md5:	15a5cf5752012269fa168c24191f00e2
 Source1:	%{name}.fdi
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
+%{!?with_internal_fuse:BuildRequires:	libfuse-devel >= 2.6.0}
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +42,18 @@ libnfts-3g libraries.
 Pliki nagłówkowe potrzebne do budowania programów korzystających z
 bibliotek libntfs-3g.
 
+%package hal
+Summary:	HAL integration for ntfs-3g
+Summary(pl.UTF-8):	Integracja ntfs-3g z HAL-em
+Group:		Applications/System
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description hal
+HAL integration for ntfs-3g.
+
+%description hal -l pl.UTF-8
+Integracja ntfs-3g z HAL-em.
+
 %package static
 Summary:	Static version of libntfs-3g library
 Summary:	Statyczna wersja bibliotek libntfs-3g
@@ -50,7 +61,7 @@ Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
-This package contains the static version of libntfs-3g library
+This package contains the static version of libntfs-3g library.
 
 %description static -l pl.UTF-8
 Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
@@ -67,7 +78,7 @@ Ten pakiet zawiera statyczną wersję bibliotek libntfs-3g.
 
 %configure \
 	--disable-ldconfig \
-	--with-fuse=internal
+	--with-fuse=%{?with_internal_fuse:in}%{!?with_internal_fuse:ex}ternal
 
 %{__make}
 
@@ -105,7 +116,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/mount.ntfs-3g
 %attr(755,root,root) %{_libdir}/libntfs-3g.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libntfs-3g.so.??
-%{_datadir}/hal/fdi/policy/10osvendor/*
 %{_mandir}/man8/mount.lowntfs-3g.8*
 %{_mandir}/man8/mount.ntfs-3g.8*
 %{_mandir}/man8/ntfs-3g.8*
@@ -119,6 +129,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libntfs-3g.la
 %{_includedir}/ntfs-3g
 %{_pkgconfigdir}/libntfs-3g.pc
+
+%files hal
+%defattr(644,root,root,755)
+%{_datadir}/hal/fdi/policy/10osvendor/*
 
 %files static
 %defattr(644,root,root,755)
