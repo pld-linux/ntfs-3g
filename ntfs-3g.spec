@@ -13,6 +13,7 @@ Group:		Applications/System
 Source0:	http://www.tuxera.com/opensource/%{name}-%{version}.tgz
 # Source0-md5:	15a5cf5752012269fa168c24191f00e2
 Source1:	%{name}.fdi
+Source2:	%{name}.rules
 URL:		http://www.ntfs-3g.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -70,6 +71,18 @@ HAL integration for ntfs-3g.
 %description hal -l pl.UTF-8
 Integracja ntfs-3g z HAL-em.
 
+%package udev
+Summary:	udev integration for ntfs-3g
+Summary(pl.UTF-8):	Integracja ntfs-3g z udevem
+Group:		Applications/System
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description udev
+udev integration for ntfs-3g.
+
+%description udev -l pl.UTF-8
+Integracja ntfs-3g z udevem.
+
 %prep
 %setup -q
 
@@ -88,7 +101,7 @@ Integracja ntfs-3g z HAL-em.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor
+install -d $RPM_BUILD_ROOT{%{_datadir}/hal/fdi/policy/10osvendor,%{_sysconfdir}/udev/rules.d}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -97,6 +110,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor
 echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor/10-%{name}.fdi
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/udev/rules.d/99-ntfs3g.rules
 
 # Symlink to allow automount using ntfs-3g:
 ln -sf ntfs-3g $RPM_BUILD_ROOT%{_sbindir}/mount.ntfs
@@ -141,3 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %files hal
 %defattr(644,root,root,755)
 %{_datadir}/hal/fdi/policy/10osvendor/10-ntfs-3g.fdi
+
+%files udev
+%defattr(644,root,root,755)
+%{_sysconfdir}/udev/rules.d/99-ntfs3g.rules
