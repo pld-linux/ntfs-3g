@@ -6,7 +6,7 @@ Summary:	The NTFS driver with read and write support
 Summary(pl.UTF-8):	Sterownik do NTFS umożliwiający odczyt i zapis
 Name:		ntfs-3g
 Version:	2011.1.15
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
@@ -101,7 +101,7 @@ Integracja ntfs-3g z udevem.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/hal/fdi/policy/10osvendor,%{_sysconfdir}/udev/rules.d}
+install -d $RPM_BUILD_ROOT{%{_datadir}/hal/fdi/policy/10osvendor,/lib/udev/rules.d}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -110,7 +110,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/hal/fdi/policy/10osvendor,%{_sysconfdir}/
 echo ".so ntfs-3g.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mount.ntfs-3g.8
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor/10-%{name}.fdi
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/udev/rules.d/99-ntfs3g.rules
+install %{SOURCE2} $RPM_BUILD_ROOT/lib/udev/rules.d/99-ntfs3g.rules
 
 # Symlink to allow automount using ntfs-3g:
 ln -sf ntfs-3g $RPM_BUILD_ROOT%{_sbindir}/mount.ntfs
@@ -158,4 +158,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files udev
 %defattr(644,root,root,755)
-%{_sysconfdir}/udev/rules.d/99-ntfs3g.rules
+/lib/udev/rules.d/99-ntfs3g.rules
