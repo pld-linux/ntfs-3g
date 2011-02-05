@@ -49,7 +49,7 @@ bibliotek libntfs-3g.
 
 %package static
 Summary:	Static version of libntfs-3g library
-Summary:	Statyczna wersja bibliotek libntfs-3g
+Summary(pl.UTF-8):	Statyczna wersja bibliotek libntfs-3g
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
