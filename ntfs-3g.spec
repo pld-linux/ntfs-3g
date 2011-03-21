@@ -10,11 +10,12 @@ Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/System
+#Source0-Download: http://www.tuxera.com/community/ntfs-3g-download/
 Source0:	http://www.tuxera.com/opensource/%{name}-%{version}.tgz
 # Source0-md5:	15a5cf5752012269fa168c24191f00e2
 Source1:	%{name}.fdi
 Source2:	%{name}.rules
-URL:		http://www.ntfs-3g.org/
+URL:		http://www.tuxera.com/community/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 %{!?with_internal_fuse:BuildRequires:	libfuse-devel >= 2.6.0}
@@ -113,7 +114,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/hal/fdi/policy/10osvendor/10-%{nam
 install %{SOURCE2} $RPM_BUILD_ROOT/lib/udev/rules.d/99-ntfs3g.rules
 
 # Symlink to allow automount using ntfs-3g:
-ln -sf ntfs-3g $RPM_BUILD_ROOT%{_sbindir}/mount.ntfs
+ln -sf %{_bindir}/ntfs-3g $RPM_BUILD_ROOT%{_sbindir}/mount.ntfs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
